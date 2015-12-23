@@ -1,6 +1,7 @@
 #pragma once
 #include "SFML\Graphics.hpp"
 #include <string>
+#include "globals.h"
 
 enum EntityStatus { ALIVE, DEAD };
 

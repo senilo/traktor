@@ -11,15 +11,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameEntity.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Traktor.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game.h" />
     <ClInclude Include="GameEntity.h" />
+    <ClInclude Include="globals.h" />
+    <ClInclude Include="main.h" />
     <ClInclude Include="Traktor.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>

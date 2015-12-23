@@ -21,3 +21,13 @@ void centerTextOrigin(sf::Text &text){
     text.setOrigin(textRect.left + textRect.width / 2.0f,
         textRect.top + textRect.height / 2.0f);
 }
+
+void centerRectangleShapeOrigin(sf::RectangleShape &text){
+    sf::FloatRect textRect = text.getLocalBounds();
+    text.setOrigin(textRect.left + textRect.width / 2.0f,
+        textRect.top + textRect.height / 2.0f);
+}
+
+float rad2deg(float angle){
+    return (angle / 3.14159 * 180);
+}

@@ -2,27 +2,8 @@
  Traktor
  Anton Olason 2015-12-23
 */
+#include "main.h"
 
-#include <SFML/Graphics.hpp>
-#include <list>
-#include <cmath>
-#include <fstream>
-#include <memory>
-#include "GameEntity.h"
-
-// Globals
-int SCREEN_WIDTH = 600;
-int SCREEN_HEIGHT = 600;
-char* TITLE = "Traktor";
-sf::Color background_color(247, 255, 25);
-enum GameStatus { CONTINUE, END };
-
-std::list <std::shared_ptr<GameEntity>> game_objects;
-bool p1_up = false , p1_down, p1_left, p1_right;
-
-/*
- Här börjar main!
-*/
 int main()
 {
     // Redirect to a file
@@ -36,6 +17,9 @@ int main()
     if (!font.loadFromFile("freefont/FreeSansBold.ttf")){
         sf::err() << "Could not open 'freefont/FreeSansBold.ttf'" << std::endl;
     }
+
+    p1_traktor = std::shared_ptr<Traktor>(new Traktor("player 1 traktor", sf::Vector2f(100.0f, 100.0f)));
+    game_objects.push_back(p1_traktor);
     
     // game loop
     while (window.isOpen())
@@ -53,14 +37,13 @@ int main()
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) window.close();
 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) p1_up = true;
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) p1_down = true;
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) p1_left = true;
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) p1_right = true;
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) p1_traktor->up = true;
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) p1_traktor->down = true;
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) p1_traktor->left = true;
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) p1_traktor->right = true;
 
         update();
         draw(window);
-
         window.display();
     }
     return 0;
@@ -83,7 +66,7 @@ void draw(sf::RenderWindow &window){
     window.clear(background_color);
     for (auto object : game_objects){
         if ((*object).visible == true){
-
+            object->draw(window);
         }
     }
 }
