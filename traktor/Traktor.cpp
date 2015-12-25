@@ -1,9 +1,10 @@
 #include "Traktor.h"
 #include "Utils.h"
 
-Traktor::Traktor(std::string name, sf::Vector2f pos) : pos(pos)
+Traktor::Traktor(std::string name, sf::Vector2f pos)
 {
-    this->name = name;
+    pos = pos;
+    name = name;
     sprite = sf::RectangleShape(sf::Vector2f(TRAKTOR_LENGTH, TRAKTOR_WIDTH));
     sprite.setFillColor(sf::Color::Green);
 

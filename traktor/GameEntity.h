@@ -13,6 +13,8 @@ public:
     bool visible;
     bool blocking;
     std::string name;
+    sf::Vector2f pos;
+    float orientation;
     
     GameEntity();
     virtual EntityStatus update();

@@ -11,6 +11,8 @@ int SCREEN_WIDTH = 800;
 int SCREEN_HEIGHT = 600;
 char* TITLE = "Traktor";
 sf::Color background_color(247, 255, 25);
+sf::Color ball_color(183, 183, 22);
+
 std::list <std::shared_ptr<GameEntity>> game_objects;
 std::shared_ptr<Traktor> p1_traktor;
 
