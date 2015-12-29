@@ -14,16 +14,19 @@
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="GameEntity.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Obstacle.cpp" />
     <ClCompile Include="Traktor.cpp" />
     <ClCompile Include="utils.cpp" />
+    <ClCompile Include="Wagon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
     <ClInclude Include="GameEntity.h" />
     <ClInclude Include="globals.h" />
-    <ClInclude Include="main.h" />
+    <ClInclude Include="Obstacle.h" />
     <ClInclude Include="Traktor.h" />
     <ClInclude Include="Utils.h" />
+    <ClInclude Include="Wagon.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4F1091C8-BD7D-4DD5-92FD-6E61CCEFC01A}</ProjectGuid>

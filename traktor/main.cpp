@@ -2,7 +2,52 @@
  Traktor
  Anton Olason 2015-12-23
 */
-#include "main.h"
+#include <list>
+#include <cmath>
+#include <fstream>
+#include <memory>
+#include <random>
+#include <functional>
+#include <ctime>
+
+#include <SFML/Graphics.hpp>
+#include "GameEntity.h"
+#include "Traktor.h"
+#include "Ball.h"
+#include "Obstacle.h"
+#include "Wagon.h"
+
+// Globals
+int SCREEN_WIDTH = 800;
+int SCREEN_HEIGHT = 600;
+char* TITLE = "Traktor";
+sf::Color background_color(247, 255, 25);
+sf::Color ball_color(183, 183, 22);
+
+std::list <std::shared_ptr<GameEntity>> game_objects;
+std::shared_ptr<Traktor> p1_traktor;
+
+
+enum GameStatus { CONTINUE, END };
+
+bool p1_up = false, p1_down = false, p1_left = false, p1_right = false;
+
+std::default_random_engine generator((unsigned int) time(0));
+std::uniform_real_distribution<double> distribution(0.0, 1.0);
+auto rng = std::bind(distribution, generator);
+
+
+double _random(){
+    return rng();
+}
+double(*random_double)() = _random;
+
+int main();
+int init_game();
+GameStatus update();
+void draw(sf::RenderWindow &window);
+
+
 
 int main()
 {
@@ -18,9 +63,8 @@ int main()
         sf::err() << "Could not open 'freefont/FreeSansBold.ttf'" << std::endl;
     }
 
-    p1_traktor = std::shared_ptr<Traktor>(new Traktor("player 1 traktor", sf::Vector2f(100.0f, 100.0f)));
-    game_objects.push_back(p1_traktor);
     
+    init_game();
     // game loop
     while (window.isOpen())
     {
@@ -45,6 +89,48 @@ int main()
         update();
         draw(window);
         window.display();
+    }
+    return 0;
+}
+
+int init_game(){
+    p1_traktor = std::shared_ptr<Traktor>(new Traktor("player 1 traktor", sf::Vector2f(100.0f, 100.0f)));
+    game_objects.push_back(p1_traktor);
+    game_objects.push_back(std::shared_ptr<Wagon>(new Wagon(p1_traktor.get())));
+
+    for (int num_added = 0; num_added < 10;){
+        bool ok = true;
+        float x = rng() * SCREEN_WIDTH;
+        float y = rng() * SCREEN_HEIGHT;
+        auto new_ball = std::shared_ptr<Ball>(new Ball(sf::Vector2f(x, y)));
+        for (auto object : game_objects){
+            if (new_ball->globalBounds.intersects(object->globalBounds)){
+                ok = false;
+                break;
+            }
+        }
+        if (ok){
+            game_objects.push_back(new_ball);
+            num_added++;
+        }
+        
+    }
+    for (int num_added = 0; num_added < 5;){
+        bool ok = true;
+        float x = rng() * SCREEN_WIDTH;
+        float y = rng() * SCREEN_HEIGHT;
+        auto new_obstacle = std::shared_ptr<Obstacle>(new Obstacle(sf::Vector2f(x, y)));
+        for (auto object : game_objects){
+            if (new_obstacle->globalBounds.intersects(object->globalBounds)){
+                ok = false;
+                break;
+            }
+        }
+        if (ok){
+            game_objects.push_back(new_obstacle);
+            num_added++;
+        }
+
     }
     return 0;
 }
