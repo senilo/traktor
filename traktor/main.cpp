@@ -96,9 +96,12 @@ int main()
 int init_game(){
     p1_traktor = std::shared_ptr<Traktor>(new Traktor("player 1 traktor", sf::Vector2f(100.0f, 100.0f)));
     game_objects.push_back(p1_traktor);
-    game_objects.push_back(std::shared_ptr<Wagon>(new Wagon(p1_traktor.get())));
+    auto wagon1 = std::shared_ptr<Wagon>(new Wagon(p1_traktor.get()));
+    game_objects.push_back(wagon1);
+    game_objects.push_back(std::shared_ptr<Wagon>(new Wagon(wagon1.get())));
+    game_objects.push_back(std::shared_ptr<BallStack>(new BallStack(sf::Vector2f(100,300))));
 
-    for (int num_added = 0; num_added < 10;){
+    for (int num_added = 0; num_added < 40;){
         bool ok = true;
         float x = rng() * SCREEN_WIDTH;
         float y = rng() * SCREEN_HEIGHT;

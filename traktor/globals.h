@@ -6,6 +6,8 @@
 // forward declaration
 class GameEntity;
 
+const float PI = 3.14159265358979323846f;
+
 extern int SCREEN_WIDTH;
 extern int SCREEN_HEIGHT;
 extern char* TITLE;

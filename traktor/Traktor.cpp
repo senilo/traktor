@@ -3,6 +3,7 @@
 #include <typeinfo>
 #include "Ball.h"
 #include "Wagon.h"
+#include "BallStack.h"
 
 Traktor::Traktor(std::string name, sf::Vector2f pos)
 {
@@ -47,20 +48,18 @@ EntityStatus Traktor::update(){
         for (auto obj : game_objects){
             if (obj.get() != this){
                 if (globalBounds.intersects(obj->globalBounds)){
+                    if (typeid(*obj) == typeid(Ball) && obj->active){
+                        connected_wagon->addBall(dynamic_cast<Ball*>(obj.get()));
+                    }
+                    else if (typeid(*obj) == typeid(BallStack)){
+                        connected_wagon->unloadBalls(dynamic_cast<BallStack*>(obj.get()));
+                    }
+                    
                     if (obj->blocking){
                         pos = old_pos;
                         orientation = old_orientation;
                         sprite.setPosition(pos);
                         sprite.setRotation(rad2deg(old_orientation));
-                    }
-                    else if (typeid(*obj) == typeid(Ball) && obj->active){
-                        if (!connected_wagon->addBall(dynamic_cast<Ball*>(obj.get())) ){
-                            pos = old_pos;
-                            orientation = old_orientation;
-                            sprite.setPosition(pos);
-                            sprite.setRotation(rad2deg(old_orientation));
-                        }
-                        //obj->visible = false;
                     }
                 }
             }

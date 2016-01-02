@@ -7,7 +7,7 @@ Ball::Ball(sf::Vector2f pos)
     num_balls++;
     this->pos = pos;
     this->name = std::string("ball_") + std::to_string(num_balls);
-    blocking = false;
+    blocking = true;
     visible = true;
     active = true;
 
@@ -15,7 +15,7 @@ Ball::Ball(sf::Vector2f pos)
     sprite.setFillColor(ball_color);
     centerRectangleShapeOrigin(sprite);
 
-    orientation = 0.1 * 3.14159*(random_double() - 0.5);
+    orientation = 3.14159*(random_double() - 0.5);
     sprite.setPosition(pos);
     sprite.setRotation(rad2deg(orientation));
     globalBounds = sprite.getGlobalBounds();
