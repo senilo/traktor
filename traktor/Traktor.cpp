@@ -9,10 +9,11 @@ Traktor::Traktor(std::string name, sf::Vector2f pos)
 {
     this->pos = pos;
     this->name = name;
-    sprite = sf::RectangleShape(sf::Vector2f(TRAKTOR_LENGTH, TRAKTOR_WIDTH));
-    sprite.setFillColor(sf::Color(52,173,0));
 
-    centerRectangleShapeOrigin(sprite);
+	texture.loadFromFile("./assets/traktor.png");
+	sprite = sf::Sprite(texture);
+	sprite.setOrigin(TRAKTOR_ORIGIN_X, TRAKTOR_WIDTH / 2);
+
     sprite.setOrigin(TRAKTOR_ORIGIN_X, TRAKTOR_WIDTH / 2);
     orientation = 0.f;
     visible = true;
@@ -20,11 +21,6 @@ Traktor::Traktor(std::string name, sf::Vector2f pos)
     sprite.setPosition(pos);
     sprite.setRotation(rad2deg(orientation));
     globalBounds = sprite.getGlobalBounds();
-}
-
-
-Traktor::~Traktor()
-{
 }
 
 EntityStatus Traktor::update(){
