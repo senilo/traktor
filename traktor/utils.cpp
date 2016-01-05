@@ -1,5 +1,5 @@
 #include "utils.h"
-
+#include "globals.h"
 /*
 Some vector functions
 */
@@ -29,5 +29,5 @@ void centerRectangleShapeOrigin(sf::RectangleShape &text){
 }
 
 float rad2deg(float angle){
-    return (angle / 3.14159 * 180);
+    return (angle / PI * 180);
 }

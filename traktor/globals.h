@@ -8,15 +8,16 @@ class GameEntity;
 
 const float PI = 3.14159265358979323846f;
 
-extern int SCREEN_WIDTH;
-extern int SCREEN_HEIGHT;
+// Globals
+const int SCREEN_WIDTH = 1800;
+const int SCREEN_HEIGHT = 900;
 extern char* TITLE;
 const float TRAKTOR_WIDTH = 20.f;
 const float TRAKTOR_LENGTH = 30.f;
 const float TRAKTOR_ORIGIN_X = TRAKTOR_LENGTH / 5;
 const float WAGON_WIDTH = 20.f;
-const float WAGON_LENGTH = 40.f;
-const float WAGON_SPACING = 8.f;
+const float WAGON_LENGTH = 52.f;
+const float WAGON_SPACING = 6.f;
 const float WAGON_ORIGIN_X = WAGON_LENGTH / 5;
 const float BALL_SIZE = 10.f;
 

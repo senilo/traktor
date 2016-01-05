@@ -17,9 +17,7 @@
 #include "Obstacle.h"
 #include "Wagon.h"
 
-// Globals
-int SCREEN_WIDTH = 800;
-int SCREEN_HEIGHT = 600;
+
 char* TITLE = "Traktor";
 sf::Color background_color(247, 255, 25);
 sf::Color ball_color(183, 183, 22);
@@ -75,8 +73,9 @@ int main()
         sf::Event event;
         while (window.pollEvent(event))
         {
-            if (event.type == sf::Event::Closed)
-                window.close();
+			if (event.type == sf::Event::Closed) {
+				window.close();
+			}
         }
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) window.close();
@@ -103,8 +102,8 @@ int init_game(){
 
     for (int num_added = 0; num_added < 40;){
         bool ok = true;
-        float x = rng() * SCREEN_WIDTH;
-        float y = rng() * SCREEN_HEIGHT;
+        float x = (float) rng() * SCREEN_WIDTH;
+        float y = (float) rng() * SCREEN_HEIGHT;
         auto new_ball = std::shared_ptr<Ball>(new Ball(sf::Vector2f(x, y)));
         for (auto object : game_objects){
             if (new_ball->globalBounds.intersects(object->globalBounds)){
@@ -120,8 +119,8 @@ int init_game(){
     }
     for (int num_added = 0; num_added < 5;){
         bool ok = true;
-        float x = rng() * SCREEN_WIDTH;
-        float y = rng() * SCREEN_HEIGHT;
+        float x = (float) rng() * SCREEN_WIDTH;
+        float y = (float) rng() * SCREEN_HEIGHT;
         auto new_obstacle = std::shared_ptr<Obstacle>(new Obstacle(sf::Vector2f(x, y)));
         for (auto object : game_objects){
             if (new_obstacle->globalBounds.intersects(object->globalBounds)){

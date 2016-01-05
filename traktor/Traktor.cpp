@@ -4,14 +4,14 @@
 #include "Ball.h"
 #include "Wagon.h"
 #include "BallStack.h"
+#include "Assets.h"
 
 Traktor::Traktor(std::string name, sf::Vector2f pos)
 {
     this->pos = pos;
     this->name = name;
 
-	texture.loadFromFile("./assets/traktor.png");
-	sprite = sf::Sprite(texture);
+	sprite = sf::Sprite(*Assets::getTexture("traktor.png"));
 	sprite.setOrigin(TRAKTOR_ORIGIN_X, TRAKTOR_WIDTH / 2);
 
     sprite.setOrigin(TRAKTOR_ORIGIN_X, TRAKTOR_WIDTH / 2);

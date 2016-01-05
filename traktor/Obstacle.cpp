@@ -6,12 +6,12 @@ Obstacle::Obstacle(sf::Vector2f pos)
     this->pos = pos;
     this->name = "Obstacle";
     blocking = true;
-    sprite = sf::RectangleShape(sf::Vector2f(BALL_SIZE, BALL_SIZE));
-    sprite.setFillColor(sf::Color::Black);
-    centerRectangleShapeOrigin(sprite);
+	sprite = sf::Sprite(*Assets::getTexture("sten.png"));
+	sprite.setOrigin(10, 10);
     visible = true;
 
     sprite.setPosition(pos);
+	sprite.setRotation(360.0f * random_double());
     globalBounds = sprite.getGlobalBounds();
     
 }

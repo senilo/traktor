@@ -1,7 +1,7 @@
 #include "BallStack.h"
 
 
-BallStack::BallStack(sf::Vector2f pos) : num_vertical(4), num_horizontal(8)
+BallStack::BallStack(sf::Vector2f pos) : num_vertical(6), num_horizontal(8)
 {
     capacity = num_vertical * num_horizontal;
     this->pos = pos;

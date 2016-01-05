@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Assets.cpp" />
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="BallStack.cpp" />
     <ClCompile Include="GameEntity.cpp" />
@@ -21,14 +22,19 @@
     <ClCompile Include="Wagon.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Assets.h" />
     <ClInclude Include="Ball.h" />
     <ClInclude Include="BallStack.h" />
     <ClInclude Include="GameEntity.h" />
     <ClInclude Include="globals.h" />
     <ClInclude Include="Obstacle.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Traktor.h" />
     <ClInclude Include="Utils.h" />
     <ClInclude Include="Wagon.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="traktor.rc" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4F1091C8-BD7D-4DD5-92FD-6E61CCEFC01A}</ProjectGuid>

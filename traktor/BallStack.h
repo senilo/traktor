@@ -5,7 +5,7 @@ class BallStack :
     public GameEntity
 {
 public:
-    int num_vertical, num_horizontal, capacity;
+    unsigned int num_vertical, num_horizontal, capacity;
     float spacing;
     std::list<Ball*> balls;
     sf::RectangleShape sprite;

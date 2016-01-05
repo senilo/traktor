@@ -1,5 +1,5 @@
 #include "Ball.h"
-
+#include "Assets.h"
 int Ball::num_balls = 0;
 
 Ball::Ball(sf::Vector2f pos)
@@ -11,11 +11,10 @@ Ball::Ball(sf::Vector2f pos)
     visible = true;
     active = true;
 
-    sprite = sf::RectangleShape(sf::Vector2f(BALL_SIZE, BALL_SIZE));
-    sprite.setFillColor(ball_color);
-    centerRectangleShapeOrigin(sprite);
+	sprite = sf::Sprite(*Assets::getTexture("ball.png"));
+	sprite.setOrigin(BALL_SIZE / 2, BALL_SIZE / 2);
 
-    orientation = 3.14159*(random_double() - 0.5);
+    orientation =  PI*((float) random_double() - 0.5f);
     sprite.setPosition(pos);
     sprite.setRotation(rad2deg(orientation));
     globalBounds = sprite.getGlobalBounds();

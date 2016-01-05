@@ -8,7 +8,7 @@ class Ball :
 private:
     static int num_balls;
 public:
-    sf::RectangleShape sprite;
+    sf::Sprite sprite;
     Ball(sf::Vector2f pos);
     void draw(sf::RenderWindow &window);
     ~Ball();

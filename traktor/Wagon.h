@@ -10,7 +10,7 @@ class Wagon :
 public:
     std::list<Ball*> balls;
     float wagon_dist_to_coupling = (WAGON_LENGTH - WAGON_ORIGIN_X + WAGON_SPACING);
-    sf::RectangleShape sprite;
+    sf::Sprite sprite;
     Traktor *connected_traktor;
     bool connected_to_traktor;
     Wagon *connected_wagon;

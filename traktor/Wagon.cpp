@@ -1,10 +1,9 @@
 #include "Wagon.h"
-
+#include "Assets.h"
 void Wagon::init(){
     name = "Wagon";
-    sprite = sf::RectangleShape(sf::Vector2f(WAGON_LENGTH, WAGON_WIDTH));
-    sprite.setFillColor(sf::Color(42, 163, 0));
-    sprite.setOrigin(WAGON_ORIGIN_X, WAGON_WIDTH / 2);
+	sprite = sf::Sprite(*Assets::getTexture("wagon.png"));
+	sprite.setOrigin(WAGON_ORIGIN_X, sprite.getLocalBounds().height / 2.0f);
     visible = true;
     trailer = 0;
 }
@@ -63,13 +62,13 @@ EntityStatus Wagon::update(){
 
     sf::Transform t = sprite.getTransform();
     auto iter = balls.begin();
-    for (int i = 0; i < balls.size(); i++){
+    for (unsigned int i = 0; i < balls.size(); i++){
         int row = i / 2;
         int col = i % 2;
         Ball *ball = *iter;
         auto ball_pos = t.transformPoint(WAGON_ORIGIN_X + WAGON_LENGTH / 5 * row, WAGON_WIDTH/2 + (col - 0.5f) * WAGON_WIDTH / 2);
         ball->sprite.setPosition(ball_pos);
-        ball->sprite.setRotation(this->sprite.getRotation());
+        ball->sprite.setRotation(this->sprite.getRotation()+90.f);
        
         iter++;
     }
