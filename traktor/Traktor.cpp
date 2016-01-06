@@ -14,7 +14,6 @@ Traktor::Traktor(std::string name, sf::Vector2f pos)
 	sprite = sf::Sprite(*Assets::getTexture("traktor.png"));
 	sprite.setOrigin(TRAKTOR_ORIGIN_X, TRAKTOR_WIDTH / 2);
 
-    sprite.setOrigin(TRAKTOR_ORIGIN_X, TRAKTOR_WIDTH / 2);
     orientation = 0.f;
     visible = true;
 

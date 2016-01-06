@@ -23,6 +23,7 @@ sf::Color background_color(247, 255, 25);
 sf::Color ball_color(183, 183, 22);
 
 std::list <std::shared_ptr<GameEntity>> game_objects;
+std::list <sf::Sprite> background_objects;
 std::shared_ptr<Traktor> p1_traktor;
 
 
@@ -44,8 +45,6 @@ int main();
 int init_game();
 GameStatus update();
 void draw(sf::RenderWindow &window);
-
-
 
 int main()
 {
@@ -117,7 +116,7 @@ int init_game(){
         }
         
     }
-    for (int num_added = 0; num_added < 5;){
+    for (int num_added = 0; num_added < 8;){
         bool ok = true;
         float x = (float) rng() * SCREEN_WIDTH;
         float y = (float) rng() * SCREEN_HEIGHT;
@@ -132,8 +131,18 @@ int init_game(){
             game_objects.push_back(new_obstacle);
             num_added++;
         }
-
     }
+
+	sf::Sprite field(*Assets::getTexture("field.png"));
+	int _field_height = field.getLocalBounds().height;
+	int _field_width = field.getLocalBounds().width;
+	for (int row = 0; row < SCREEN_HEIGHT / _field_height; row++) {
+		for (int col = 0; col < SCREEN_WIDTH / _field_height; col++) {
+			background_objects.push_back(sf::Sprite(field));
+			background_objects.back().setPosition(col*_field_width, row*_field_height);
+		}
+	}
+	//background_objects
     return 0;
 }
 
@@ -152,6 +161,9 @@ GameStatus update(){
 
 void draw(sf::RenderWindow &window){
     window.clear(background_color);
+	for (auto sprite : background_objects) {
+		window.draw(sprite);
+	}
     for (auto object : game_objects){
         if ((*object).visible == true){
             object->draw(window);

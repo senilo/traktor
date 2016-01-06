@@ -2,7 +2,7 @@
 #include "Assets.h"
 void Wagon::init(){
     name = "Wagon";
-	sprite = sf::Sprite(*Assets::getTexture("wagon.png"));
+	sprite = sf::Sprite(*Assets::getTexture("wagon.png")); 
 	sprite.setOrigin(WAGON_ORIGIN_X, sprite.getLocalBounds().height / 2.0f);
     visible = true;
     trailer = 0;
@@ -53,7 +53,7 @@ EntityStatus Wagon::update(){
     if (length(mov_dir) > 0.f){
         orientation = std::atan2(mov_dir.y, mov_dir.x);
         float diff = (length(mov_dir) - wagon_dist_to_coupling);
-        if (diff > 0){
+        if (std::abs(diff) > 0){
             pos = pos + mov_dir / length(mov_dir) * diff;
         }
         sprite.setPosition(pos);

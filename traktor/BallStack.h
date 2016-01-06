@@ -8,7 +8,7 @@ public:
     unsigned int num_vertical, num_horizontal, capacity;
     float spacing;
     std::list<Ball*> balls;
-    sf::RectangleShape sprite;
+    sf::Sprite sprite;
     
     BallStack(sf::Vector2f pos);
     void draw(sf::RenderWindow &w);

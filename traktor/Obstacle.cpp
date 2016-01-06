@@ -6,7 +6,12 @@ Obstacle::Obstacle(sf::Vector2f pos)
     this->pos = pos;
     this->name = "Obstacle";
     blocking = true;
-	sprite = sf::Sprite(*Assets::getTexture("sten.png"));
+	if (random_double() > 0.5) {
+		sprite = sf::Sprite(*Assets::getTexture("sten.png"));
+	}
+	else {
+		sprite = sf::Sprite(*Assets::getTexture("tree.png"));
+	}
 	sprite.setOrigin(10, 10);
     visible = true;
 

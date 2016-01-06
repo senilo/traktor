@@ -1,5 +1,5 @@
 #include "BallStack.h"
-
+#include "Assets.h"
 
 BallStack::BallStack(sf::Vector2f pos) : num_vertical(6), num_horizontal(8)
 {
@@ -12,8 +12,9 @@ BallStack::BallStack(sf::Vector2f pos) : num_vertical(6), num_horizontal(8)
 
 
 
-    sprite = sf::RectangleShape(sf::Vector2f((num_horizontal + 1) * BALL_SIZE, (num_vertical + 1) * BALL_SIZE));
-    sprite.setFillColor(sf::Color::Blue);
+    /*sprite = sf::RectangleShape(sf::Vector2f((num_horizontal + 1) * BALL_SIZE, (num_vertical + 1) * BALL_SIZE));
+    sprite.setFillColor(sf::Color::Blue);*/
+	sprite = sf::Sprite(*Assets::getTexture("stroh_miete.png"));
     sprite.setPosition(pos);
 
     globalBounds = sprite.getGlobalBounds();

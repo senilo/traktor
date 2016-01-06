@@ -17,7 +17,7 @@ const float TRAKTOR_LENGTH = 30.f;
 const float TRAKTOR_ORIGIN_X = TRAKTOR_LENGTH / 5;
 const float WAGON_WIDTH = 20.f;
 const float WAGON_LENGTH = 52.f;
-const float WAGON_SPACING = 6.f;
+const float WAGON_SPACING = 5.f;
 const float WAGON_ORIGIN_X = WAGON_LENGTH / 5;
 const float BALL_SIZE = 10.f;
 
