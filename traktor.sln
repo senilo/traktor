@@ -7,8 +7,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "traktor", "traktor\traktor.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "editor", "editor\editor.vcxproj", "{FB049357-1930-40B2-A93D-C77CA2A77342}"
 	ProjectSection(ProjectDependencies) = postProject
-		{4F1091C8-BD7D-4DD5-92FD-6E61CCEFC01A} = {4F1091C8-BD7D-4DD5-92FD-6E61CCEFC01A}
+		{17037DFB-8ACC-493D-919E-008B19D42167} = {17037DFB-8ACC-493D-919E-008B19D42167}
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "common", "common\common.vcxproj", "{17037DFB-8ACC-493D-919E-008B19D42167}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +32,12 @@ Global
 		{FB049357-1930-40B2-A93D-C77CA2A77342}.Release|Win32.ActiveCfg = Release|Win32
 		{FB049357-1930-40B2-A93D-C77CA2A77342}.Release|Win32.Build.0 = Release|Win32
 		{FB049357-1930-40B2-A93D-C77CA2A77342}.Release|x64.ActiveCfg = Release|Win32
+		{17037DFB-8ACC-493D-919E-008B19D42167}.Debug|Win32.ActiveCfg = Debug|Win32
+		{17037DFB-8ACC-493D-919E-008B19D42167}.Debug|Win32.Build.0 = Debug|Win32
+		{17037DFB-8ACC-493D-919E-008B19D42167}.Debug|x64.ActiveCfg = Debug|Win32
+		{17037DFB-8ACC-493D-919E-008B19D42167}.Release|Win32.ActiveCfg = Release|Win32
+		{17037DFB-8ACC-493D-919E-008B19D42167}.Release|Win32.Build.0 = Release|Win32
+		{17037DFB-8ACC-493D-919E-008B19D42167}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
