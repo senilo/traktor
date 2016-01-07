@@ -1,20 +1,35 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2013 for Windows Desktop
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "traktor", "traktor\traktor.vcxproj", "{4F1091C8-BD7D-4DD5-92FD-6E61CCEFC01A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "editor", "editor\editor.vcxproj", "{FB049357-1930-40B2-A93D-C77CA2A77342}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4F1091C8-BD7D-4DD5-92FD-6E61CCEFC01A} = {4F1091C8-BD7D-4DD5-92FD-6E61CCEFC01A}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
 		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{4F1091C8-BD7D-4DD5-92FD-6E61CCEFC01A}.Debug|Win32.ActiveCfg = Debug|Win32
 		{4F1091C8-BD7D-4DD5-92FD-6E61CCEFC01A}.Debug|Win32.Build.0 = Debug|Win32
+		{4F1091C8-BD7D-4DD5-92FD-6E61CCEFC01A}.Debug|x64.ActiveCfg = Debug|Win32
 		{4F1091C8-BD7D-4DD5-92FD-6E61CCEFC01A}.Release|Win32.ActiveCfg = Release|Win32
 		{4F1091C8-BD7D-4DD5-92FD-6E61CCEFC01A}.Release|Win32.Build.0 = Release|Win32
+		{4F1091C8-BD7D-4DD5-92FD-6E61CCEFC01A}.Release|x64.ActiveCfg = Release|Win32
+		{FB049357-1930-40B2-A93D-C77CA2A77342}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FB049357-1930-40B2-A93D-C77CA2A77342}.Debug|Win32.Build.0 = Debug|Win32
+		{FB049357-1930-40B2-A93D-C77CA2A77342}.Debug|x64.ActiveCfg = Debug|Win32
+		{FB049357-1930-40B2-A93D-C77CA2A77342}.Release|Win32.ActiveCfg = Release|Win32
+		{FB049357-1930-40B2-A93D-C77CA2A77342}.Release|Win32.Build.0 = Release|Win32
+		{FB049357-1930-40B2-A93D-C77CA2A77342}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
