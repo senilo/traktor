@@ -11,6 +11,7 @@
 #include <ctime>
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "GameEntity.h"
 #include "Traktor.h"
 #include "Ball.h"
@@ -59,6 +60,11 @@ int main()
     if (!font.loadFromFile("freefont/FreeSansBold.ttf")){
         sf::err() << "Could not open 'freefont/FreeSansBold.ttf'" << std::endl;
     }
+	sf::SoundBuffer tut_buffer;
+	tut_buffer.loadFromFile("./assets/tut.wav");
+	sf::Sound tut;
+	tut.setBuffer(tut_buffer);
+	bool space_released = true;
 
     
     init_game();
@@ -74,6 +80,17 @@ int main()
         {
 			if (event.type == sf::Event::Closed) {
 				window.close();
+			}
+			if (event.type == sf::Event::KeyPressed) {
+				if (event.key.code == sf::Keyboard::Space && 
+					space_released == true /*&&
+					tut.getStatus() != sf::SoundSource::Playing*/) {
+					tut.play();
+					space_released = false;
+				}
+			}
+			if (event.type == sf::Event::KeyReleased && event.key.code == sf::Keyboard::Space) {
+				space_released = true;
 			}
         }
 
